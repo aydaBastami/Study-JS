@@ -43,18 +43,11 @@
 
 let url = "https://jsonplaceholder.typicode.com/posts";
 let app = document.querySelector(".app")
-// fetch(url)
-//     .then(responce => responce.json())
-//     .then(data => console.log(data))
-
 let getArticle = async (url) => {
     let responce = await fetch(url)
     let data = await responce.json()
 
     data.forEach(data => {
-        // title.innerHTML = `${data.title}`
-        // userId.innerHTML = `${data.userId}`
-        // body.innerHTML = `${data.body}`
         app.innerHTML += `<article class="card">
         <h4 class="title">${data.title}</h4>
         <small class="userId">${data.userId}</small>
