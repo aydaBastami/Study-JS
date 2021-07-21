@@ -42,10 +42,7 @@
 // ******* FETCH API ******* //
 
 let url = "https://jsonplaceholder.typicode.com/posts";
-let divApp = document.createElement("div")
-divApp.setAttribute("id", "app")
-let body = document.getElementsByTagName("body")
-divApp.append(body)
+let app = document.querySelector(".app")
 // fetch(url)
 //     .then(responce => responce.json())
 //     .then(data => console.log(data))
@@ -54,13 +51,16 @@ let getArticle = async (url) => {
     let responce = await fetch(url)
     let data = await responce.json()
 
-    // for (let i = 0; i < url.data.length; i++) {
-    //     divApp.innerHTML = url.data[i].title
-
-    // }
-
     data.forEach(data => {
-        divApp.innerHTML = url.data.title
+        // title.innerHTML = `${data.title}`
+        // userId.innerHTML = `${data.userId}`
+        // body.innerHTML = `${data.body}`
+        app.innerHTML += `<article class="card">
+        <h4 class="title">${data.title}</h4>
+        <small class="userId">${data.userId}</small>
+        <p class="body">${data.body}</p>
+    </article> <hr>
+    `
     })
 }
 
